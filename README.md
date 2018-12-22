@@ -14,5 +14,5 @@ Enjoy :)
 ```
 ## Built With
 - HTML5
-- CSS3
+- CSS3 (Bootstrap4)
 - Javascript (jQuery)
