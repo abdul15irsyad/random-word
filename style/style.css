@@ -1,0 +1,104 @@
+div.container{
+	margin-top: 20px;
+	width: 90%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+div.container button{
+	cursor: pointer;
+}
+
+div.container button:hover{
+	box-shadow: 2px 2px 2px grey;
+}
+
+div.row-button-title, div.row-input-title{
+	margin-top: 4vw;
+	text-align: center;
+}
+
+div.row-button-jumlah button.btn-jumlah{
+	background-color: #fff;
+	border-width: 1.5px;
+	border-color: #0275d8;
+	font-family: 'century gothic';
+	font-size: 150%;
+	font-weight: bold;
+	width: 100%;
+	color: #0275d8;
+}
+
+div.row-button-jumlah button.active{
+	background-color: #0275d8;
+	color: #fff;
+}
+
+div.row-input{
+	padding: 0px;
+}
+
+div.row-input div.col{
+	padding: 0px 5px;
+}
+
+div.row-input input{
+	text-transform: uppercase;
+	/*font-size: 150%;*/
+	font-size: 5vw;
+	font-weight: bold;
+	margin: 0px;
+	text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+  	div.row-input input{
+    	font-size: 30px;
+  	}
+  	div.row-tabel-hasil th, div.row-tabel-hasil td{
+  		margin-top: 24px;
+    	font-size: 18px;
+  	}
+  	div.row-button-title, div.row-input-title{
+  		margin-top: 24px;
+  	}
+}
+
+div.row-input div.hide{
+	display: none;
+}
+
+
+div.row-button-generate{
+	text-align: center;
+	padding: 20px;
+}
+
+div.row-button-generate button.btn-generate{
+	background-color: #0275d8;
+	color: #fff;
+	border-width: 1.5px;
+	border-color: #0275d8;
+	border-radius: 30px;
+	font-family: 'century gothic';
+	font-size: 150%;
+	font-weight: bold;
+	min-width: 80%;
+}
+
+div.row-tabel-hasil{
+	margin-top: 4vw;
+}
+
+div.row-tabel-hasil table{
+	display: none;
+	font-size: 3vw;
+}
+
+div.row-tabel-hasil tbody{
+	text-transform: uppercase;
+}
+
+div.row-tabel-hasil thead th, div.row-tabel-hasil tbody td{
+	text-align: center;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style/fontawesome-free/css/all.min.css">
+	<title>Random Word</title>
+</head>
+<body>
+	<div class="container">
+		<div class="lg-header row">
+			<h1>Random Word</h1>
+		</div>
+		<div class="sm-header row">
+			<p>&emsp;&emsp;Aplikasi untuk mengacak huruf menjadi suatu kata</p>
+		</div>
+		<div class="row row-button-title">
+			<div class="col col-12">
+				<h3>Jumlah Huruf</h3>
+			</div>
+		</div>
+		<div class="row row-button-jumlah">
+			<div class="col">
+				<button class="btn btn-jumlah active" id="btn_jumlah_5">5</button>
+			</div>
+			<div class="col">
+				<button class="btn btn-jumlah" id="btn_jumlah_6">6</button>
+			</div>
+		</div>
+		<div class="row row-input-title">
+			<div class="col col-12">
+				<h3>Masukkan Huruf</h3>
+			</div>
+		</div>
+		<div class="row row-input">
+			<div class="col">
+				<input type="text" class="form-control" maxlength="1" name="input_1" onkeypress="return hanyaHuruf(event)">
+			</div>
+			<div class="col">
+				<input type="text" class="form-control" maxlength="1" name="input_2" onkeypress="return hanyaHuruf(event)">
+			</div>
+			<div class="col">
+				<input type="text" class="form-control" maxlength="1" name="input_3" onkeypress="return hanyaHuruf(event)">
+			</div>
+			<div class="col">
+				<input type="text" class="form-control" maxlength="1" name="input_4" onkeypress="return hanyaHuruf(event)">
+			</div>
+			<div class="col">
+				<input type="text" class="form-control" maxlength="1" name="input_5" onkeypress="return hanyaHuruf(event)">
+			</div>
+			<div class="col hide">
+				<input type="text" class="form-control" maxlength="1" name="input_6" onkeypress="return hanyaHuruf(event)">
+			</div>
+		</div>
+		<div class="row row-button-generate">
+			<div class="col col-12">
+				<button class="btn btn-generate" id="btn_generate" disabled>Generate</button>
+			</div>
+		</div>
+		<div class="row row-tabel-hasil">
+			<div class="col-4">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>Kata</th>
+						</tr>
+					</thead>
+					<tbody id="tbody_1"></tbody>
+				</table>
+			</div>
+			<div class="col-4">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>Kata</th>
+						</tr>
+					</thead>
+					<tbody id="tbody_2">
+					</tbody>
+				</table>
+			</div>
+			<div class="col-4">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>Kata</th>
+						</tr>
+					</thead>
+					<tbody id="tbody_3">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</html>
