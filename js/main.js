@@ -1,19 +1,56 @@
 //ini adalah main js
 $(document).ready(function(){
-	var jumlah_huruf=5;
+	var jumlah_huruf=3;
 	var input_1,input_2,input_3,input_4,input_5,input_6;
 	var kata="";
 	var array_huruf=[];
+
+	//button jumlah huruf 3
+	$("#btn_jumlah_3").click(function(){
+		$(".btn-jumlah").removeClass('active');
+		$(this).addClass(' active');
+		$(".col_4.hide").hide();
+		$(".col_5.hide").hide();
+		$(".col_6.hide").hide();
+		$(".col_4.hide > .form-control").val('');
+		$(".col_5.hide > .form-control").val('');
+		$(".col_6.hide > .form-control").val('');
+		jumlah_huruf=3;
+		if (tigaHurufAda()){
+			$("#btn_generate").removeAttr("disabled");
+		}
+	});
+
+	//button jumlah huruf 4
+	$("#btn_jumlah_4").click(function(){
+		$(".btn-jumlah").removeClass('active');
+		$(this).addClass(' active');
+		$(".col_4").show();
+		$(".col_5.hide").hide();
+		$(".col_6.hide").hide();
+		$(".col_5.hide > .form-control").val('');
+		$(".col_6.hide > .form-control").val('');
+		jumlah_huruf=4;
+		if (empatHurufAda()){
+			$("#btn_generate").removeAttr("disabled");
+		}else{
+			$("#btn_generate").attr("disabled","disabled");
+		}
+	});
 
 	//button jumlah huruf 5
 	$("#btn_jumlah_5").click(function(){
 		$(".btn-jumlah").removeClass('active');
 		$(this).addClass(' active');
-		$(".hide").hide();
-		$(".hide > .form-control").val('');
+		$(".col_4").show();
+		$(".col_5").show();
+		$(".col_6.hide").hide();
+		$(".col_6.hide > .form-control").val('');
 		jumlah_huruf=5;
 		if (limaHurufAda()){
 			$("#btn_generate").removeAttr("disabled");
+		}else{
+			$("#btn_generate").attr("disabled","disabled");
 		}
 	});
 
@@ -23,15 +60,23 @@ $(document).ready(function(){
 		$(this).addClass(' active');
 		$(".hide").show();
 		jumlah_huruf=6;
-		$("#btn_generate").attr("disabled","disabled");
+		if (enamHurufAda()){
+			$("#btn_generate").removeAttr("disabled");
+		}else{
+			$("#btn_generate").attr("disabled","disabled");
+		}
 	});
 
 	$("input.form-control").keyup(function(){
-		if (limaHurufAda()) {
-			if(jumlah_huruf==5){
+		if (tigaHurufAda()) {
+			if(jumlah_huruf==3){
+				$("#btn_generate").removeAttr("disabled");
+			}else if(jumlah_huruf==4&&empatHurufAda()){
+				$("#btn_generate").removeAttr("disabled");
+			}else if(jumlah_huruf==5&&limaHurufAda()){
 				$("#btn_generate").removeAttr("disabled");
 			}
-			else if($("input[name='input_6']").val()!=""&&jumlah_huruf==6){
+			else if(jumlah_huruf==6&&enamHurufAda()){
 				$("#btn_generate").removeAttr("disabled");
 			}
 		}
@@ -44,17 +89,23 @@ $(document).ready(function(){
 		input_1 = $("input[name='input_1']").val();
 		input_2 = $("input[name='input_2']").val();
 		input_3 = $("input[name='input_3']").val();
-		input_4 = $("input[name='input_4']").val();
-		input_5 = $("input[name='input_5']").val();
 
 		//memasukkan inputan ke dalam array
 		array_huruf=[];
-		array_huruf.push(input_1,input_2,input_3,input_4,input_5);
+		array_huruf.push(input_1,input_2,input_3);
 		array_huruf.sort();
 		
-		if (jumlah_huruf==6) {
-			input_6 = $("input[name='input_6']").val();
-			array_huruf.push(input_6);
+		if (jumlah_huruf>=4) {
+			input_4 = $("input[name='input_4']").val();
+			array_huruf.push(input_4);
+			if(jumlah_huruf>=5){
+				input_5 = $("input[name='input_5']").val();
+				array_huruf.push(input_5);
+				if(jumlah_huruf>=6) {
+					input_6 = $("input[name='input_6']").val();
+					array_huruf.push(input_6);
+				}
+			}
 		}
 
 		//kombinasi 3 huruf
@@ -137,12 +188,40 @@ function hanyaHuruf(){
         return false;
 }
 
+function tigaHurufAda(){
+	if ($("input[name='input_1']").val()!=""&&
+		$("input[name='input_2']").val()!=""&&
+		$("input[name='input_3']").val()!="") {
+		return true;
+	}
+}
+
+function empatHurufAda(){
+	if ($("input[name='input_1']").val()!=""&&
+		$("input[name='input_2']").val()!=""&&
+		$("input[name='input_3']").val()!=""&&
+		$("input[name='input_4']").val()!="") {
+		return true;
+	}
+}
+
 function limaHurufAda(){
 	if ($("input[name='input_1']").val()!=""&&
 		$("input[name='input_2']").val()!=""&&
 		$("input[name='input_3']").val()!=""&&
 		$("input[name='input_4']").val()!=""&&
 		$("input[name='input_5']").val()!="") {
+		return true;
+	}
+}
+
+function enamHurufAda(){
+	if ($("input[name='input_1']").val()!=""&&
+		$("input[name='input_2']").val()!=""&&
+		$("input[name='input_3']").val()!=""&&
+		$("input[name='input_4']").val()!=""&&
+		$("input[name='input_5']").val()!=""&&
+		$("input[name='input_6']").val()!="") {
 		return true;
 	}
 }
