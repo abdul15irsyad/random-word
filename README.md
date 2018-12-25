@@ -1,7 +1,7 @@
 # Random Word
-This is my application that can make a combination of letter
+This is my first application that can make a combination of letter
 
-if you know game named "Word Finder - Word Connect" in Play Store. I make this app to solve the game, but it's just only show the combination of the letter.
+if you know game named "Word Finder - Word Connect" in Play Store. I make this app to solve the game, but it's only show the combination of the letter.
 ## Installing
 1. Clone the repo
 ```
