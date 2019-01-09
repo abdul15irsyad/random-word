@@ -90,6 +90,10 @@ div.row-tabel-hasil{
 	margin-top: 4vw;
 }
 
+div.row-tabel-hasil .col-4{
+	padding: 0.1rem;
+}
+
 div.row-tabel-hasil table{
 	display: none;
 	font-size: 3vw;
@@ -101,4 +105,5 @@ div.row-tabel-hasil tbody{
 
 div.row-tabel-hasil thead th, div.row-tabel-hasil tbody td{
 	text-align: center;
+	padding: 0.75rem 0.1rem;
 }

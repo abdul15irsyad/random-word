@@ -110,21 +110,29 @@ $(document).ready(function(){
 
 		//kombinasi 3 huruf
 		var no=1;
-		var i,j,k,l,m;
+		var i,j,k,l,m,tmp;
+		var kataCheck="";
 		for(i=0;i<jumlah_huruf;i++){
 			for(j=0;j<jumlah_huruf;j++){
 				if(i!=j) for(k=0;k<jumlah_huruf;k++){
 					if(j!=k&&i!=k){
-						kata="<tr><td class='no'>"+no+"</td>";
-						kata+="<td>"+array_huruf[i]+array_huruf[j]+array_huruf[k]+"</td></tr>";
-						if (no%3==0) {
-							$("#tbody_3").append(kata);
-						}else if(no%2==0){
-							$("#tbody_2").append(kata);
-						}else{
-							$("#tbody_1").append(kata);
+						kataCheck=array_huruf[i]+array_huruf[j]+array_huruf[k];
+						if(adalahKata(kataCheck)){
+							kata="<tr><td class='no'>"+no+"</td>";
+							kata+="<td>"+kataCheck+"</td></tr>";
+							tmp=no;
+							while(tmp>3){
+								tmp-=3;
+							}
+							if (tmp==3) {
+								$("#tbody_3").append(kata);
+							}else if(tmp==2){
+								$("#tbody_2").append(kata);
+							}else{
+								$("#tbody_1").append(kata);
+							}
+							no++;
 						}
-						no++;
 					}
 				}
 				
@@ -137,16 +145,23 @@ $(document).ready(function(){
 				if(i!=j) for(k=0;k<jumlah_huruf;k++){
 					if(j!=k&&i!=k) for(l=0;l<jumlah_huruf;l++){
 						if(k!=l&&j!=l&&i!=l){
-							kata="<tr><td class='no'>"+no+"</td>";
-							kata+="<td>"+array_huruf[i]+array_huruf[j]+array_huruf[k]+array_huruf[l]+"</td></tr>";
-							if (no%3==0) {
-								$("#tbody_3").append(kata);
-							}else if(no%2==0){
-								$("#tbody_2").append(kata);
-							}else{
-								$("#tbody_1").append(kata);
+							kataCheck=array_huruf[i]+array_huruf[j]+array_huruf[k]+array_huruf[l];
+							if(adalahKata(kataCheck)){
+								kata="<tr><td class='no'>"+no+"</td>";
+								kata+="<td>"+kataCheck+"</td></tr>";
+								tmp=no;
+								while(tmp>3){
+									tmp-=3;
+								}
+								if (tmp==3) {
+									$("#tbody_3").append(kata);
+								}else if(tmp==2){
+									$("#tbody_2").append(kata);
+								}else{
+									$("#tbody_1").append(kata);
+								}
+								no++;
 							}
-							no++;
 						}
 					}
 				}
@@ -160,16 +175,23 @@ $(document).ready(function(){
 					if(j!=k&&i!=k) for(l=0;l<jumlah_huruf;l++){
 						if(k!=l&&j!=l&&i!=l) for(m=0;m<jumlah_huruf;m++){
 							if(l!=m&&k!=m&&j!=m&&i!=m){
-								kata="<tr><td class='no'>"+no+"</td>";
-								kata+="<td>"+array_huruf[i]+array_huruf[j]+array_huruf[k]+array_huruf[l]+array_huruf[m]+"</td></tr>";
-								if (no%3==0) {
-									$("#tbody_3").append(kata);
-								}else if(no%2==0){
-									$("#tbody_2").append(kata);
-								}else{
-									$("#tbody_1").append(kata);
+								kataCheck=array_huruf[i]+array_huruf[j]+array_huruf[k]+array_huruf[l]+array_huruf[m];
+								if(adalahKata(kataCheck)){
+									kata="<tr><td class='no'>"+no+"</td>";
+									kata+="<td>"+kataCheck+"</td></tr>";
+									tmp=no;
+									while(tmp>3){
+										tmp-=3;
+									}
+									if (tmp==3) {
+										$("#tbody_3").append(kata);
+									}else if(tmp==2){
+										$("#tbody_2").append(kata);
+									}else{
+										$("#tbody_1").append(kata);
+									}
+									no++;
 								}
-								no++;
 							}
 						}
 					}
@@ -224,4 +246,24 @@ function enamHurufAda(){
 		$("input[name='input_6']").val()!="") {
 		return true;
 	}
+}
+
+function adalahKata(kata){
+	var vokal=false;
+	for(var i=0;i<kata.length;i++){
+		if(kata[i].toLowerCase()=='a'||
+			kata[i].toLowerCase()=='i'||
+			kata[i].toLowerCase()=='u'||
+			kata[i].toLowerCase()=='e'||
+			kata[i].toLowerCase()=='o'||
+			kata[i].toLowerCase()=='y'){
+			vokal=true;
+			break;
+		}
+	}
+	if(vokal==false){
+		console.log(kata);
+	}
+	console.log(vokal);
+	return vokal;
 }
