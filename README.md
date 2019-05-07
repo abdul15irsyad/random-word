@@ -18,3 +18,6 @@ Enjoy :)
 - Bootstrap4
 - Javascript 
 - jQuery
+
+## Demo
+Try it [Random Word](https://abdul15irsyad.github.io/random-word/)
